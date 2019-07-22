@@ -2,11 +2,9 @@
 
 This Kata is intended to showcase and develop proficiency with refactoring object oriented code.  It has a long and storied [history](http://twitter.com/TerryHughes) on the web and there's a good chance you can find [other variants](https://github.com/NotMyself/GildedRose) or even other solutions in whole or in part if you look hard enough.  That would defeat both the spirit and the point of the kata.  
 
-Before you get started you might want to check out ["Writing Good Tests for the Gilded Rose Kata"](http://coding-is-like-cooking.info/2013/03/writing-good-tests-for-the-gilded-rose-kata/) about how you could use this kata in a [coding dojo](https://leanpub.com/codingdojohandbook). Alternatively, fire up your favorite IDE and get hacking.
-
 ## How to use this Kata
 
-The simplest way is to just clone the code and start hacking away improving the design. You'll want to look at the ["Gilded Rose Requirements"](https://github.com/foxguardsolutions/GildedRose-Refactoring-Kata/blob/master/GildedRoseRequirements.txt) which explains what the code is for. You'll also need some tests to make sure you don't break the code while you refactor.
+The simplest way is to just clone the code and start hacking away improving the design. You'll need to look at the ["Gilded Rose Requirements"](https://github.com/foxguardsolutions/GildedRose-Refactoring-Kata/blob/master/GildedRoseRequirements.txt) which explains what the code is for and what you have to do with it. You'll also need some tests to make sure you don't break the code while you refactor.
 
 You could write some unit tests yourself, using the requirements to identify suitable test cases. To get you started, each language has a failing unit test in a popular test framework as a starting point for most languages.  You don't have to use that framework, but it's there as a starting point.
 
@@ -23,3 +21,5 @@ It's basically the same idea as "assertEquals(expected, actual)" in a unit test,
 Typically a piece of legacy code may not produce suitable textual output from the start, so you may need to modify it before you can write your first text-based approval test. That could involve inserting log statements into the code, or just writing a "main" method that executes the code and prints out what the result is afterwards. It's this latter approach we are using here to test GildedRose.
 
 The Text-Based tests in this repository are designed to be used with the tool "TextTest" (http://texttest.org). This tool helps you to organize and run text-based tests. There is more information in the README file in the "texttests" subdirectory.
+
+**Note that the text based approval tests do not cover all of the changes requested in ["Gilded Rose Requirements"](https://github.com/foxguardsolutions/GildedRose-Refactoring-Kata/blob/master/GildedRoseRequirements.txt).**

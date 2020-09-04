@@ -22,7 +22,7 @@ namespace GildedRoseTests
             Program.Main(new string[] { });
             var outputLines = sw.ToString().Replace("\r", "").Split('\n');
 
-            Assert.That(outputLines.ToString().Trim(), Is.EqualTo(lines.ToString().Trim()));
+            Assert.That(outputLines, Is.EqualTo(lines));
         }
     }
 }

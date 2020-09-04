@@ -13,6 +13,7 @@ namespace GildedRoseApp
         private const int TripleQualityIncrease = 3;
         private const int NormalQualityDecrease = -1;
         private const int DoubleQualityDecrease = -2;
+        private const int ConjuredQualityFactor = 2;
 
         public void UpdateItemValues(IEnumerable<InventoryItem> items)
         {
@@ -33,6 +34,12 @@ namespace GildedRoseApp
                         break;
                     case CategoryList.Conjured:
                         UpdateConjured(item);
+                        break;
+                    case CategoryList.ConjuredAgedBrie:
+                        UpdateConjuredAgedBrie(item);
+                        break;
+                    case CategoryList.ConjuredBackstagePasses:
+                        UpdateConjuredBackStagePass(item);
                         break;
                     default:
                         UpdateStandard(item);
@@ -93,7 +100,38 @@ namespace GildedRoseApp
         private static void UpdateConjured(InventoryItem item)
         {
             var currentQuality = item.Quality;
-            item.Quality = GetQualityDecrease(currentQuality, item.SellIn < 0 ? DoubleQualityDecrease : NormalQualityDecrease);
+            item.Quality = GetQualityDecrease(currentQuality, item.SellIn < 0 ? DoubleQualityDecrease * ConjuredQualityFactor : NormalQualityDecrease * ConjuredQualityFactor);
+        }
+
+        private static void UpdateConjuredAgedBrie(InventoryItem item)
+        {
+            var currentQuality = item.Quality;
+            item.Quality = IsPastAgedDate(item.SellIn) ? GetQualityIncrease(currentQuality, DoubleQualityIncrease * ConjuredQualityFactor) :
+                                                         GetQualityIncrease(currentQuality, NormalQualityIncrease * ConjuredQualityFactor);
+        }
+
+        private static void UpdateConjuredBackStagePass(InventoryItem item)
+        {
+            item.SellIn -= 1;
+            item.Quality = !IsPastAgedDate(item.SellIn) ? GetConjuredBackStagePassQuality(item) : MinQuality;
+        }
+
+        private static int GetConjuredBackStagePassQuality(InventoryItem item)
+        {
+            var currentQuality = item.Quality;
+
+            if (item.SellIn < 5)
+            {
+                return GetQualityIncrease(currentQuality, TripleQualityIncrease * ConjuredQualityFactor);
+            }
+            else if (item.SellIn < 10)
+            {
+                return GetQualityIncrease(currentQuality, DoubleQualityIncrease * ConjuredQualityFactor);
+            }
+            else
+            {
+                return GetQualityIncrease(currentQuality, NormalQualityIncrease * ConjuredQualityFactor);
+            }
         }
     }
 }

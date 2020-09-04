@@ -11,6 +11,8 @@ namespace GildedRoseApp
             Sulfuras,
             BackstagePasses,
             Conjured,
+            ConjuredAgedBrie,
+            ConjuredBackstagePasses,
         }
 
         public Enum Category { get; set; }

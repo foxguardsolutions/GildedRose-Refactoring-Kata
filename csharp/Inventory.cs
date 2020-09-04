@@ -23,7 +23,7 @@ namespace GildedRoseApp
                     System.Console.WriteLine(item);
                 }
 
-                Console.WriteLine(string.Empty);
+                Console.WriteLine("");
                 itemAdjustments.UpdateItemValues(items);
             }
         }
@@ -41,6 +41,10 @@ namespace GildedRoseApp
                 new InventoryItem { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 49, Category = CategoryList.BackstagePasses },
                 new InventoryItem { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 49, Category = CategoryList.BackstagePasses },
                 new InventoryItem { Name = "Conjured Mana Cake", SellIn = 3, Quality = 6, Category = CategoryList.Conjured },
+                new InventoryItem { Name = "ConjuredAged Brie", SellIn = 10, Quality = 12, Category = CategoryList.ConjuredAgedBrie },
+                new InventoryItem { Name = "Backstage passes to a CONJURED80ETC concert", SellIn = 15, Quality = 40, Category = CategoryList.ConjuredBackstagePasses },
+                new InventoryItem { Name = "Backstage passes to a CONJURED80ETC concert", SellIn = 10, Quality = 40, Category = CategoryList.ConjuredBackstagePasses },
+                new InventoryItem { Name = "Backstage passes to a CONJURED80ETC concert", SellIn = 5, Quality = 40, Category = CategoryList.ConjuredBackstagePasses },
             };
         }
     }

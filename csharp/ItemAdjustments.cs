@@ -1,20 +1,11 @@
 ﻿using System.Collections.Generic;
-using static GildedRoseApp.InventoryItem;
+using static GildedRoseApp.Constants;
+using static GildedRoseApp.Categories;
 
 namespace GildedRoseApp
 {
     public class ItemAdjustments
     {
-        private const int MaxQuality = 50;
-        private const int MinQuality = 0;
-        private const int MinAgedDate = 0;
-        private const int NormalQualityIncrease = 1;
-        private const int DoubleQualityIncrease = 2;
-        private const int TripleQualityIncrease = 3;
-        private const int NormalQualityDecrease = -1;
-        private const int DoubleQualityDecrease = -2;
-        private const int ConjuredQualityFactor = 2;
-
         public void UpdateItemValues(IEnumerable<InventoryItem> items)
         {
             foreach (var item in items)

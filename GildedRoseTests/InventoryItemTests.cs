@@ -1,7 +1,6 @@
-﻿using System;
-using GildedRoseApp;
+﻿using GildedRoseApp;
 using NUnit.Framework;
-using static GildedRoseApp.InventoryItem;
+using static GildedRoseApp.Categories;
 
 namespace GildedRoseTests
 {
@@ -50,11 +49,11 @@ namespace GildedRoseTests
         }
 
         [Test]
-        [TestCase("AgedBrie", InventoryItem.CategoryList.AgedBrie)]
-        [TestCase("BackstagePasses", InventoryItem.CategoryList.BackstagePasses)]
-        [TestCase("Conjured", InventoryItem.CategoryList.Conjured)]
-        [TestCase("Standard", InventoryItem.CategoryList.Standard)]
-        [TestCase("Sulfuras", InventoryItem.CategoryList.Sulfuras)]
+        [TestCase("AgedBrie", CategoryList.AgedBrie)]
+        [TestCase("BackstagePasses", CategoryList.BackstagePasses)]
+        [TestCase("Conjured", CategoryList.Conjured)]
+        [TestCase("Standard", CategoryList.Standard)]
+        [TestCase("Sulfuras", CategoryList.Sulfuras)]
         public void CategoryList_GivenEnumProperties_ReturnsCorrectEnum(string category, CategoryList categoryEnum)
         {
             var inventoryItem = new InventoryItem {Category = categoryEnum};

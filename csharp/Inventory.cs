@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using static GildedRoseApp.InventoryItem;
+using static GildedRoseApp.Constants;
 
 namespace GildedRoseApp
 {
@@ -16,7 +16,7 @@ namespace GildedRoseApp
 
             for (var i = 0; i < 31; i++)
             {
-                Console.WriteLine("-------- day " + i + " --------");
+                Console.WriteLine($"-------- day {i} --------");
                 Console.WriteLine("name, sellIn, quality");
 
                 foreach (var item in items)
@@ -31,8 +31,7 @@ namespace GildedRoseApp
 
         private static IEnumerable<InventoryItem> CreateInventoryList()
         {
-            var jsonItemData = File.ReadAllText("inventory_items.json");
-            return InventoryData.FromJson(jsonItemData);
+            return InventoryData.FromJson(File.ReadAllText(InventoryFileName));
         }
     }
 }

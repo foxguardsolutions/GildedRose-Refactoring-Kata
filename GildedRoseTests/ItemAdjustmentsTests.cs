@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using GildedRoseApp;
-using static GildedRoseApp.InventoryItem;
+using static GildedRoseApp.Categories;
 using NUnit.Framework;
 using System.Linq;
 

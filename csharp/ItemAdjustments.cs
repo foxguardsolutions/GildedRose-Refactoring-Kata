@@ -48,6 +48,11 @@ namespace GildedRoseApp
             }
         }
 
+        private static int GetCurrentQuality(InventoryItem item)
+        {
+            return item.Quality;
+        }
+
         private static int GetQualityIncrease(int quality, int adjustment)
         {
             return (quality + adjustment >= MaxQuality) ? MaxQuality : quality += adjustment;
@@ -62,8 +67,7 @@ namespace GildedRoseApp
 
         private static void UpdateAgedBrie(InventoryItem item)
         {
-            var currentQuality = item.Quality;
-            item.Quality = IsPastAgedDate(item.SellIn) ? GetQualityIncrease(currentQuality, DoubleQualityIncrease) : GetQualityIncrease(currentQuality, NormalQualityIncrease);
+            item.Quality = IsPastAgedDate(item.SellIn) ? GetQualityIncrease(GetCurrentQuality(item), DoubleQualityIncrease) : GetQualityIncrease(GetCurrentQuality(item), NormalQualityIncrease);
         }
 
         private static void UpdateBackStagePass(InventoryItem item)
@@ -73,19 +77,17 @@ namespace GildedRoseApp
 
         private static int GetBackStagePassQuality(InventoryItem item)
         {
-            var currentQuality = item.Quality;
-
             if (item.SellIn < 5)
             {
-                return GetQualityIncrease(currentQuality, TripleQualityIncrease);
+                return GetQualityIncrease(GetCurrentQuality(item), TripleQualityIncrease);
             }
             else if (item.SellIn < 10)
             {
-                return GetQualityIncrease(currentQuality, DoubleQualityIncrease);
+                return GetQualityIncrease(GetCurrentQuality(item), DoubleQualityIncrease);
             }
             else
             {
-                return GetQualityIncrease(currentQuality, NormalQualityIncrease);
+                return GetQualityIncrease(GetCurrentQuality(item), NormalQualityIncrease);
             }
         }
 
@@ -93,21 +95,18 @@ namespace GildedRoseApp
 
         private static void UpdateStandard(InventoryItem item)
         {
-            var currentQuality = item.Quality;
-            item.Quality = GetQualityDecrease(currentQuality, item.SellIn < 0 ? DoubleQualityDecrease : NormalQualityDecrease);
+            item.Quality = GetQualityDecrease(GetCurrentQuality(item), item.SellIn < 0 ? DoubleQualityDecrease : NormalQualityDecrease);
         }
 
         private static void UpdateConjured(InventoryItem item)
         {
-            var currentQuality = item.Quality;
-            item.Quality = GetQualityDecrease(currentQuality, item.SellIn < 0 ? DoubleQualityDecrease * ConjuredQualityFactor : NormalQualityDecrease * ConjuredQualityFactor);
+            item.Quality = GetQualityDecrease(GetCurrentQuality(item), item.SellIn < 0 ? DoubleQualityDecrease * ConjuredQualityFactor : NormalQualityDecrease * ConjuredQualityFactor);
         }
 
         private static void UpdateConjuredAgedBrie(InventoryItem item)
         {
-            var currentQuality = item.Quality;
-            item.Quality = IsPastAgedDate(item.SellIn) ? GetQualityIncrease(currentQuality, DoubleQualityIncrease * ConjuredQualityFactor) :
-                                                         GetQualityIncrease(currentQuality, NormalQualityIncrease * ConjuredQualityFactor);
+            item.Quality = IsPastAgedDate(item.SellIn) ? GetQualityIncrease(GetCurrentQuality(item), DoubleQualityIncrease * ConjuredQualityFactor) :
+                                                         GetQualityIncrease(GetCurrentQuality(item), NormalQualityIncrease * ConjuredQualityFactor);
         }
 
         private static void UpdateConjuredBackStagePass(InventoryItem item)
@@ -118,19 +117,17 @@ namespace GildedRoseApp
 
         private static int GetConjuredBackStagePassQuality(InventoryItem item)
         {
-            var currentQuality = item.Quality;
-
             if (item.SellIn < 5)
             {
-                return GetQualityIncrease(currentQuality, TripleQualityIncrease * ConjuredQualityFactor);
+                return GetQualityIncrease(GetCurrentQuality(item), TripleQualityIncrease * ConjuredQualityFactor);
             }
             else if (item.SellIn < 10)
             {
-                return GetQualityIncrease(currentQuality, DoubleQualityIncrease * ConjuredQualityFactor);
+                return GetQualityIncrease(GetCurrentQuality(item), DoubleQualityIncrease * ConjuredQualityFactor);
             }
             else
             {
-                return GetQualityIncrease(currentQuality, NormalQualityIncrease * ConjuredQualityFactor);
+                return GetQualityIncrease(GetCurrentQuality(item), NormalQualityIncrease * ConjuredQualityFactor);
             }
         }
     }

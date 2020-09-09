@@ -12,7 +12,7 @@ namespace GildedRoseTests
         [Test]
         public void Program_CompareConsoleOutputToGoldenMaster_ReturnTrue()
         {
-            var path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"ThirtyDays.txt");
+            var path = "ThirtyDays.txt";
             var lines = File.ReadAllLines(path);
 
             var sw = new StringWriter();

@@ -19,7 +19,7 @@ namespace GildedRoseTests
         [TestCase("Backstage passes to a TAFKAL80ETC concert", 5, 49, CategoryList.BackstagePasses, "Backstage passes to a TAFKAL80ETC concert", 5, 49, "BackstagePasses")]
         [TestCase("Conjured Mana Cake", 3, 6, CategoryList.Conjured, "Conjured Mana Cake", 3, 6, "Conjured")]
 
-        public void InventoryItem_GivenCreationOfInventoryItem_ReturnsCorrectAssignedProperties(string name, int sellIn, int quality, Enum category,
+        public void InventoryItem_GivenCreationOfInventoryItem_ReturnsCorrectAssignedProperties(string name, int sellIn, int quality, CategoryList category,
             string expName, int expSellIn, int expQuality, string expCategory)
         {
             var inventoryItem = new InventoryItem{ Name = name, SellIn = sellIn, Quality = quality, Category = category};
@@ -43,7 +43,7 @@ namespace GildedRoseTests
         [TestCase("Backstage passes to a TAFKAL80ETC concert", 5, 49, CategoryList.BackstagePasses, "Backstage passes to a TAFKAL80ETC concert, 5, 49")]
         [TestCase("Conjured Mana Cake", 3, 6, CategoryList.Conjured, "Conjured Mana Cake, 3, 6")]
 
-        public void InventoryItem_GivenCreationOfInventoryItem_ReturnsCorrectToStringOverrideAssignment(string name, int sellIn, int quality, Enum category, string expToStringOverride)
+        public void InventoryItem_GivenCreationOfInventoryItem_ReturnsCorrectToStringOverrideAssignment(string name, int sellIn, int quality, CategoryList category, string expToStringOverride)
         {
             var inventoryItem = new InventoryItem { Name = name, SellIn = sellIn, Quality = quality, Category = category };
             Assert.That(inventoryItem.ToString(), Is.EqualTo(expToStringOverride));
@@ -55,7 +55,7 @@ namespace GildedRoseTests
         [TestCase("Conjured", InventoryItem.CategoryList.Conjured)]
         [TestCase("Standard", InventoryItem.CategoryList.Standard)]
         [TestCase("Sulfuras", InventoryItem.CategoryList.Sulfuras)]
-        public void CategoryList_GivenEnumProperties_ReturnsCorrectEnum(string category, Enum categoryEnum)
+        public void CategoryList_GivenEnumProperties_ReturnsCorrectEnum(string category, CategoryList categoryEnum)
         {
             var inventoryItem = new InventoryItem {Category = categoryEnum};
             Assert.That(inventoryItem.Category.ToString(), Is.EqualTo(category));

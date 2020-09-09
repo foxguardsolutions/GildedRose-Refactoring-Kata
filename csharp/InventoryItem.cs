@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace GildedRoseApp
 {
@@ -15,7 +16,7 @@ namespace GildedRoseApp
             ConjuredBackstagePasses,
         }
 
-        public Enum Category { get; set; }
+        public CategoryList Category { get; set; }
 
         public override string ToString()
         {

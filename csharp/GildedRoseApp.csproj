@@ -62,8 +62,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgedBrieAdjustments.cs" />
+    <Compile Include="BackstagePassesAdjustment.cs" />
     <Compile Include="Categories.cs" />
+    <Compile Include="ConjuredAdjustments.cs" />
+    <Compile Include="ConjuredAgedBrieAdjustments.cs" />
+    <Compile Include="ConjuredBackstagePassesAdjustments.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="IBackstagePasses.cs" />
+    <Compile Include="IItemAdjustments.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="InventoryData.cs" />
     <Compile Include="InventoryItem.cs" />
@@ -71,6 +78,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ItemAdjustments.cs" />
+    <Compile Include="StandardAdjustments.cs" />
+    <Compile Include="SulfurasAdjustments.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

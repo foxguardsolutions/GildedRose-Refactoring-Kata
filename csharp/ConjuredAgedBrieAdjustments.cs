@@ -9,8 +9,8 @@ namespace GildedRoseApp
             var currentQuality = item.Quality;
             var currentSellIn = item.SellIn;
             item.SellIn = AdjustSellIn(currentSellIn,NormalSellInDecrease);
-            item.Quality = IsPastAgedDate(item.SellIn) ? AdjustQuality(currentQuality, DoubleQualityIncrease * ConjuredQualityFactor) :
-                                                                     AdjustQuality(currentQuality, NormalQualityIncrease * ConjuredQualityFactor);
+            item.Quality = IsPastAgedDate(item.SellIn) ? AdjustQuality(currentQuality, DoubleQualityIncrease * ConjuredQualityFactor) : 
+                                                                    AdjustQuality(currentQuality, NormalQualityIncrease * ConjuredQualityFactor);
             return item;
         }
 
@@ -18,6 +18,7 @@ namespace GildedRoseApp
         {
             return (quality + adjustment >= MaxQuality) ? MaxQuality : quality + adjustment;
         }
+
         private static int AdjustSellIn(int sellIn, int adjustment)
         {
             return sellIn + adjustment;

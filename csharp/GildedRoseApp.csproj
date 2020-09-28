@@ -65,6 +65,7 @@
     <Compile Include="AgedBrieAdjustments.cs" />
     <Compile Include="BackstagePassesAdjustment.cs" />
     <Compile Include="Categories.cs" />
+    <Compile Include="CategoryCommands.cs" />
     <Compile Include="ConjuredAdjustments.cs" />
     <Compile Include="ConjuredAgedBrieAdjustments.cs" />
     <Compile Include="ConjuredBackstagePassesAdjustments.cs" />

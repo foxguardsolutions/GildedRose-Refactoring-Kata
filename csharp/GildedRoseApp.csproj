@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="packages\ApprovalTests.5.4.1\build\ApprovalTests.props" Condition="Exists('packages\ApprovalTests.5.4.1\build\ApprovalTests.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -25,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,22 +37,20 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ApprovalTests, Version=3.0.0.0, Culture=neutral, PublicKeyToken=11bd7d124fc62e0f, processorArchitecture=MSIL">
-      <HintPath>packages\ApprovalTests.3.0.13\lib\net40\ApprovalTests.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="ApprovalUtilities, Version=3.0.0.0, Culture=neutral, PublicKeyToken=11bd7d124fc62e0f, processorArchitecture=MSIL">
       <HintPath>packages\ApprovalUtilities.3.0.13\lib\net45\ApprovalUtilities.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="ApprovalUtilities.Net45, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ApprovalUtilities.3.0.13\lib\net45\ApprovalUtilities.Net45.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,32 +62,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApprovalTest.cs" />
-    <Compile Include="GildedRose.cs" />
-    <Compile Include="GildedRoseTest.cs" />
+    <Compile Include="AgedBrieAdjustments.cs" />
+    <Compile Include="BackstagePassesAdjustment.cs" />
+    <Compile Include="Categories.cs" />
+    <Compile Include="CategoryCommands.cs" />
+    <Compile Include="ConjuredAdjustments.cs" />
+    <Compile Include="ConjuredAgedBrieAdjustments.cs" />
+    <Compile Include="ConjuredBackstagePassesAdjustments.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="IBackstagePasses.cs" />
+    <Compile Include="IItemAdjustments.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="InventoryData.cs" />
+    <Compile Include="InventoryItem.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ItemAdjustments.cs" />
+    <Compile Include="StandardAdjustments.cs" />
+    <Compile Include="SulfurasAdjustments.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="App.config" />
+    <None Include="inventory_items.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ThirtyDays.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('packages\ApprovalTests.5.4.1\build\ApprovalTests.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\ApprovalTests.5.4.1\build\ApprovalTests.props'))" />
+    <Error Condition="!Exists('packages\ApprovalTests.5.4.1\build\ApprovalTests.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\ApprovalTests.5.4.1\build\ApprovalTests.targets'))" />
+    <Error Condition="!Exists('packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props'))" />
   </Target>
+  <Import Project="packages\ApprovalTests.5.4.1\build\ApprovalTests.targets" Condition="Exists('packages\ApprovalTests.5.4.1\build\ApprovalTests.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

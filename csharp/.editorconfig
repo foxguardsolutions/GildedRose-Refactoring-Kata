@@ -1,0 +1,16 @@
+﻿[*.cs]
+
+# SA1600: Elements should be documented
+dotnet_diagnostic.SA1600.severity = none
+
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = none
+
+# SA1602: Enumeration items should be documented
+dotnet_diagnostic.SA1602.severity = silent
+
+# Default severity for analyzer diagnostics with category 'StyleCop.CSharp.DocumentationRules'
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.DocumentationRules.severity = none
+
+# Default severity for analyzer diagnostics with category 'StyleCop.CSharp.OrderingRules'
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.OrderingRules.severity = none

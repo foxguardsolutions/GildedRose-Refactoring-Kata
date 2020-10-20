@@ -1,0 +1,80 @@
+[
+  {
+    "Name": "+5 Dexterity Vest",
+    "SellIn": 10,
+    "Quality": 20,
+    "Category": "Standard"
+  },
+  {
+    "Name": "Aged Brie",
+    "SellIn": 2,
+    "Quality": 0,
+    "Category": "AgedBrie"
+  },
+  {
+    "Name": "Elixir of the Mongoose",
+    "SellIn": 5,
+    "Quality": 7,
+    "Category": "Standard"
+  },
+  {
+    "Name": "Sulfuras, Hand of Ragnaros",
+    "SellIn": 0,
+    "Quality": 80,
+    "Category": "Sulfuras"
+  },
+  {
+    "Name": "Sulfuras, Hand of Ragnaros",
+    "SellIn": -1,
+    "Quality": 80,
+    "Category": "Sulfuras"
+  },
+  {
+    "Name": "Backstage passes to a TAFKAL80ETC concert",
+    "SellIn": 15,
+    "Quality": 20,
+    "Category": "BackstagePasses"
+  },
+  {
+    "Name": "Backstage passes to a TAFKAL80ETC concert",
+    "SellIn": 10,
+    "Quality": 49,
+    "Category": "BackstagePasses"
+  },
+  {
+    "Name": "Backstage passes to a TAFKAL80ETC concert",
+    "SellIn": 5,
+    "Quality": 49,
+    "Category": "BackstagePasses"
+  },
+  {
+    "Name": "Conjured Mana Cake",
+    "SellIn": 3,
+    "Quality": 6,
+    "Category": "Conjured"
+  },
+  {
+    "Name": "ConjuredAged Brie",
+    "SellIn": 10,
+    "Quality": 12,
+    "Category": "ConjuredAgedBrie"
+  },
+  {
+    "Name": "Backstage passes to a CONJURED80ETC concert",
+    "SellIn": 15,
+    "Quality": 40,
+    "Category": "ConjuredBackstagePasses"
+  },
+  {
+    "Name": "Backstage passes to a CONJURED80ETC concert",
+    "SellIn": 10,
+    "Quality": 40,
+    "Category": "ConjuredBackstagePasses"
+  },
+  {
+    "Name": "Backstage passes to a CONJURED80ETC concert",
+    "SellIn": 5,
+    "Quality": 40,
+    "Category": "ConjuredBackstagePasses"
+  }
+]
